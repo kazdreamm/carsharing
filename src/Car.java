@@ -1,16 +1,8 @@
-public class Car extends Transport{
+public class Car extends Transport {
 
-    public Status status = new Status(false);
-
-
-    public Car(double speed, int weight, String color, String location) {
-        super(speed, weight, color, location);
+    public Car(String brand, String model, int year, int mileage,
+               String configuration, String location, String color, double price) {
+        super(brand, model, year, mileage, configuration, location, color, price);
     }
-
-    @Override
-    public void moveObject(float speed) {
-        System.out.println("Скорость:" + speed);
-    }
-
 
 }

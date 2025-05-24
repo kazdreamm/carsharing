@@ -2,40 +2,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        Car mercedes = new Car(250,3000,"black", "Astana");
+        Car mercedes = new Car("Mercedes", "E-Class", 2020, 50000, "Premium", "Astana", "Black", 20000);
+        Suv landCruiser = new Suv("Toyota", "Land Cruiser", 2018, 75000, "Luxury", "Almaty", "White", 25000);
 
-        Suv land_crusier = new Suv(3000, "Astana", false);
-
-        System.out.println("Список автомобилей:");
-        System.out.println("1.Mercedes");
-        System.out.println("2.land_crusier");
-        System.out.println("Информацию о каком автомобиле хотите посмотреть:");
-
-        int choice = sc.nextInt();
-        switch (choice){
-            case 1:
-                mercedes.status.info();
-                break;
-
-            case 2:
-                land_crusier.status.info();
-                break;
-        }
+        mercedes.printInfo();
+        landCruiser.printInfo();
 
 
-//        land_crusier.setValues(250,3000,"black", "Astana");
-//        System.out.println(land_crusier.getValues());
+        System.out.println("\nАренда Mercedes:");
+        mercedes.rent();
 
-
-
-
-
-
+        System.out.println("Проверка статуса аренды Mercedes:");
+        mercedes.printInfo();
 
 
     }
-
 }

@@ -1,61 +1,45 @@
 public abstract class Transport {
-
-    private double speed;
-    private int weight;
-    private String color;
+    private String brand;
+    private String model;
+    private int year;
+    private int mileage;
+    private String configuration;
     private String location;
+    private String color;
+    private boolean isRented;
+    private double price;  // цена аренды за сутки
 
-
-    public Transport(double speed, int weight, String color, String location) {
-
-        this.speed = speed;
-        this.weight = weight;
+    public Transport(String brand, String model, int year, int mileage,
+                     String configuration, String location, String color, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.mileage = mileage;
+        this.configuration = configuration;
+        this.location = location;
         this.color = color;
-        this.location = location;
-
+        this.price = price;
+        this.isRented = false; // по умолчанию свободен
     }
 
-    public Transport(int weight, String location) {
-        this.weight = weight;
-        this.location = location;
-
-    }
-
-    public void setValues(double speed, int weight, String color, String location) {
-        this.speed = speed;
-        this.weight = weight;
-        this.color = color;
-        this.location = location;
-
-    }
-
-    public String getValues() {
-        String info = "Object speed: " + this.speed + ", weight: " + this.weight + ", color: " + this.color+ ", location: " + this.location;
-        return info;
-
-    }
-
-    public abstract void moveObject(float speed);
-
-    class Status{
-        private boolean isReady;
-
-        public Status (boolean isReady) {
-            this.isReady = isReady;
+    public void rent() {
+        if (!isRented) {
+            isRented = true;
+            System.out.println(brand + " " + model + "Свободен");
+        } else {
+            System.out.println(brand + " " + model + "Занят");
         }
-
-        public void info() {
-            if(isReady) {
-                System.out.println("Свободен");
-            }
-
-            else
-                System.out.println("Занят");
-        }
-
     }
 
-
-
-
+    public void printInfo() {
+        System.out.println("Марка: " + brand + "\n"+
+                "Модель: " + model + "\n" +
+                "Год: " + year+"\n" +
+                "Пробег: " + mileage + "\n"+
+                "Комплектация: " + configuration +"\n"+
+                "Локация: " + location + "\n"+
+                "Цвет: " + color + "\n"+
+                "Цена аренды: " + price + " тг/сутки" + "\n"+
+                "Статус: " + (isRented ? "Занят" : "Свободен"));
+    }
 }
