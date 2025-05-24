@@ -7,9 +7,25 @@ public class Suv extends Transport{
 
     }
 
+    public Status status = new Status(true);
+
+
+
+    public void setValues(double speed, int weight, String color, String location, boolean isLoaded){
+        super.setValues(speed, weight, color, location);
+        this.isLoaded = isLoaded;
+    }
+
+
     public Suv(int weight, String location, boolean isLoaded) {
         super(weight, location);
         this.isLoaded = isLoaded;
+
+    }
+
+    @Override
+    public void moveObject(float speed) {
+        System.out.println("Скорость:" + speed);
 
     }
 
@@ -24,4 +40,5 @@ public class Suv extends Transport{
             System.out.println("Suv not loaded");
 
     }
+
 }

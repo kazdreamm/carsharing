@@ -1,27 +1,23 @@
-public class Transport {
+public abstract class Transport {
 
     private double speed;
     private int weight;
     private String color;
     private String location;
 
+
     public Transport(double speed, int weight, String color, String location) {
 
-        System.out.println("Object created:");
         this.speed = speed;
         this.weight = weight;
         this.color = color;
         this.location = location;
 
-        System.out.println(getValues());
     }
 
     public Transport(int weight, String location) {
-
-        System.out.println("Object created:");
         this.weight = weight;
         this.location = location;
-        System.out.println(getValues());
 
     }
 
@@ -36,6 +32,26 @@ public class Transport {
     public String getValues() {
         String info = "Object speed: " + this.speed + ", weight: " + this.weight + ", color: " + this.color+ ", location: " + this.location;
         return info;
+
+    }
+
+    public abstract void moveObject(float speed);
+
+    class Status{
+        private boolean isReady;
+
+        public Status (boolean isReady) {
+            this.isReady = isReady;
+        }
+
+        public void info() {
+            if(isReady) {
+                System.out.println("Свободен");
+            }
+
+            else
+                System.out.println("Занят");
+        }
 
     }
 
